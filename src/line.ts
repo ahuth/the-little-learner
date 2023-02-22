@@ -5,6 +5,8 @@
 //
 // Finding the parameters for a "dataset" (in this case pairs of xs and ys) is "learning" 🤯. The
 // set of parameters is theta - θ.
+//
+// A function that can learn the parameters for any data set is what machine learning is.
 export function line(x: number) {
   return function (...theta: number[]) {
     // theta[0] = slope
