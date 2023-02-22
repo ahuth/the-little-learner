@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "es2020"
+  }
+}
