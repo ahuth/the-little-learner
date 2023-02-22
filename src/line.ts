@@ -6,9 +6,9 @@
 // Finding the parameters for a "dataset" (in this case pairs of xs and ys) is "learning" 🤯. The
 // set of parameters is theta - θ.
 export function line(x: number) {
-  return function (...θ: number[]) {
-    // θ[0] = slope
-    // θ[1] = b
-    return θ[0] * x + θ[1];
+  return function (...theta: number[]) {
+    // theta[0] = slope
+    // theta[1] = b
+    return theta[0] * x + theta[1];
   }
 }
