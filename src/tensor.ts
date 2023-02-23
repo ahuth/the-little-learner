@@ -55,6 +55,20 @@ export function shape(t: Scalar | Tensor<any>): number[] {
   return shaped(t, []);
 }
 
+/**
+ * Sum together the elements of a rank 1 tensor (which is a tensor containing scalar values).
+ */
+export function sum1(t: Tensor<number>) {
+  function summed(t: Tensor<number>, index: number, acc: number): number {
+    if (index === 0) {
+      return acc + t[0];
+    }
+    return summed(t, index - 1, acc + t[index]);
+  }
+
+  return summed(t, len(t) - 1, 0);
+}
+
 function isScalar(el: any): el is Scalar {
   return typeof el === 'number';
 }
