@@ -38,11 +38,14 @@ export function rank(t: Scalar | Tensor<any>): number {
  * shape ([[9, 8], [7 6]]) // => [2, 2]
  * shape([[[5], [6], [7]]]) // => [1, 3, 1]
  */
-export function shape(t: Scalar | Tensor<any>, acc: number[] = []): number[] {
-  if (isScalar(t)) {
-    return acc;
+export function shape(t: Scalar | Tensor<any>): number[] {
+  function shaped(t: Scalar | Tensor<any>, acc: number[]): number[] {
+    if (isScalar(t)) {
+      return acc;
+    }
+    return shaped(at(t, 0), [...acc, len(t)]);
   }
-  return shape(at(t, 0), [...acc, len(t)]);
+  return shaped(t, []);
 }
 
 function isScalar(el: any): el is Scalar {
