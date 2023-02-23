@@ -22,11 +22,11 @@ export function len(t: Tensor<any>): number {
  * rank([9]) // => 1
  * rank([[9]]) // => 2
  */
-export function rank(t: Scalar | Tensor<any>, acc = 0): number {
-  if (isScalar(t)) {
-    return acc;
-  }
-  return rank(at(t, 0), acc + 1);
+export function rank(t: Scalar | Tensor<any>): number {
+  // We could count the levels of nesting ourselves. But it turns out the rank is the same as the
+  // number of elements in a tensor's shape. Makes sense, since in both cases we're sort of
+  // descending down each level of nesting.
+  return shape(t).length;
 }
 
 /**
