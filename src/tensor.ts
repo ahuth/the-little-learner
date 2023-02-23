@@ -5,7 +5,7 @@ export function at<T>(t: Tensor<T>, index: number): T {
   return t[index];
 }
 
-export function len<T>(t: Tensor<T>): number {
+export function len(t: Tensor<any>): number {
   return t.length;
 }
 
