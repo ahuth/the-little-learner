@@ -1,14 +1,18 @@
 type Tensor<T> = T[];
 
+export function at<T>(t: Tensor<T>, index: number): T {
+  return t[index];
+}
+
 export function len<T>(t: Tensor<T>): number {
   return t.length;
 }
 
 export function rank<T>(t: Tensor<T>, acc = 1): number {
-  if (isScalar(t[0])) {
+  if (isScalar(at(t, 0))) {
     return acc;
   }
-  return rank(t[0] as Tensor<T>, acc + 1);
+  return rank(at(t, 0) as Tensor<T>, acc + 1);
 }
 
 function isScalar(el: any): boolean {
