@@ -1,4 +1,11 @@
 type Scalar = number;
+
+/**
+ * A Tensor seems to be a list that can hold either scalars or other tensors. Each element in it
+ * has to be the same kind of thing. For example, all have to be scalars, or all have to be tensors
+ * with 1 scalar each, or all have to be tensors with 5 scalars, or all have to be tensors with 3
+ * tensors that each have 7 tensors that each have 5 scalars, etc.
+ */
 type Tensor<T> = T[];
 
 /**
