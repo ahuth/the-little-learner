@@ -20,7 +20,7 @@ export function shape(t: Scalar | Tensor<any>, acc: number[] = []): number[] {
   if (isScalar(t)) {
     return acc;
   }
-  return shape(at(t, 0), acc.concat(len(t)));
+  return shape(at(t, 0), [...acc, len(t)]);
 }
 
 function isScalar(el: any): el is Scalar {
