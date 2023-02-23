@@ -16,6 +16,13 @@ export function rank(t: Scalar | Tensor<any>, acc = 0): number {
   return rank(at(t, 0), acc + 1);
 }
 
+export function shape(t: Scalar | Tensor<any>, acc: number[] = []): number[] {
+  if (isScalar(t)) {
+    return acc;
+  }
+  return shape(at(t, 0), acc.concat(len(t)));
+}
+
 function isScalar(el: any): el is Scalar {
   return typeof el === 'number';
 }
